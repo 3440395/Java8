@@ -33,30 +33,29 @@ public class AppleSort {
     private static void sortByNormal(List<Apple> appleList) {
         Collections.sort(appleList, (a1, a2) -> a1.weight.compareTo(a2.weight));
     }
-}
 
-class Apple {
-    Integer id;
-    Integer weight;
+    static class Apple {
+        Integer id;
+        Integer weight;
+        public Apple(Integer id, Integer weight) {
+            this.id = id;
+            this.weight = weight;
+        }
 
-    public Apple(Integer id, Integer weight) {
-        this.id = id;
-        this.weight = weight;
-    }
+        public Integer getId() {
+            return id;
+        }
 
-    public Integer getId() {
-        return id;
-    }
+        public Integer getWeight() {
+            return weight;
+        }
 
-    public Integer getWeight() {
-        return weight;
-    }
-
-    @Override
-    public String toString() {
-        return "Apple{" +
-                "id=" + id +
-                ", weight=" + weight +
-                '}';
+        @Override
+        public String toString() {
+            return "Apple{" +
+                    "id=" + id +
+                    ", weight=" + weight +
+                    '}';
+        }
     }
 }
