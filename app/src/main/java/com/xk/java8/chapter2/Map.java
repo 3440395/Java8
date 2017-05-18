@@ -23,19 +23,21 @@ public class Map {
         appleList.add(new Apple(6, 1, "red"));
         appleList.add(new Apple(6, 1, "red"));
 
-
-
         //将苹果的集合转换成颜色的集合
         List<String> map = map(appleList, Apple::getColor);
         for (String s : map) {
             System.out.println(s);
         }
 
+        Runnable o = () -> {
+            System.out.println("xx");
+        };
+
     }
 
 
-    public static <T,R>List<R> map(List<T> appleList, Function<T,R> fun) throws IOException {
-        List<R> rList=new ArrayList<R>();
+    public static <T, R> List<R> map(List<T> appleList, Function<T, R> fun) throws IOException {
+        List<R> rList = new ArrayList<R>();
         for (T t : appleList) {
             R apply = fun.apply(t);
             rList.add(apply);
