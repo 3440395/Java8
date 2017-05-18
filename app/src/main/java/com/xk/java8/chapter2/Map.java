@@ -2,7 +2,9 @@ package com.xk.java8.chapter2;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 /**
@@ -23,16 +25,27 @@ public class Map {
         appleList.add(new Apple(6, 1, "red"));
         appleList.add(new Apple(6, 1, "red"));
 
-        //将苹果的集合转换成颜色的集合
-        List<String> map = map(appleList, Apple::getColor);
-        for (String s : map) {
-            System.out.println(s);
+
+        List<Integer> integers = Arrays.asList(1, 3, 5, 6, 8);
+        List<Apple> map1 = map(integers, Apple::new);
+        for (Apple apple : map1) {
+            System.out.println(apple);
         }
 
-        Runnable o = () -> {
-            System.out.println("xx");
-        };
+        System.out.println("-----------------");
 
+        List<Integer> integers1 = Arrays.asList(1, 3, 5, 6, 8);
+        List<Apple> bimap = bimap(integers1, integers1,Apple::new);
+        for (Apple apple : bimap) {
+            System.out.println(apple);
+        }
+//
+//        appleList.sort(Comparator.comparing(apple -> apple.getColor()));
+//        //将苹果的集合转换成颜色的集合
+//        List<String> map = map(appleList, Apple::getColor);
+//        for (String s : map) {
+//            System.out.println(s);
+//        }
     }
 
 
@@ -45,10 +58,25 @@ public class Map {
         return rList;
     }
 
+    public static <T, U, R> List<R> bimap(List<T> t1, List<U> u1, BiFunction<T, U, R> fun) throws IOException {
+        List<R> rList = new ArrayList<R>();
+        for (T t : t1) {
+            R apply = fun.apply(t, (U) t);
+            rList.add(apply);
+        }
+        return rList;
+    }
+
+
     static class Apple {
         Integer id;
         Integer weight;
         String color;
+
+        public Apple(Integer id) {
+            weight = id;
+        }
+
 
         public String getColor() {
             return color;
