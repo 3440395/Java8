@@ -2,10 +2,11 @@ package com.xk.java8.chapter2;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * Created by xuekai on 2017/5/18.
@@ -25,20 +26,41 @@ public class Map {
         appleList.add(new Apple(6, 1, "red"));
         appleList.add(new Apple(6, 1, "red"));
 
+        Predicate<Apple> isRed = (Apple::isRed);
+        isRed=isRed.or(Apple::isBlue);
 
-        List<Integer> integers = Arrays.asList(1, 3, 5, 6, 8);
-        List<Apple> map1 = map(integers, Apple::new);
-        for (Apple apple : map1) {
+
+        List<Apple> collect = appleList.stream()
+                .filter(isRed)
+                .collect(Collectors.toList());
+
+        for (Apple apple : collect) {
             System.out.println(apple);
         }
+//
+//        List<Integer> integers = Arrays.asList(1, 3, 5, 6, 8);
+//
+//
+//        integers.sort(comparing(Integer::intValue).reversed());
+//
+//
+//        for (Integer integer : integers) {
+//            System.out.println(integer);
+//        }
 
-        System.out.println("-----------------");
 
-        List<Integer> integers1 = Arrays.asList(1, 3, 5, 6, 8);
-        List<Apple> bimap = bimap(integers1, integers1,Apple::new);
-        for (Apple apple : bimap) {
-            System.out.println(apple);
-        }
+//        List<Apple> map1 = map(integers, Apple::new);
+//        for (Apple apple : map1) {
+//            System.out.println(apple);
+//        }
+//
+//        System.out.println("-----------------");
+//
+//        List<Integer> integers1 = Arrays.asList(1, 3, 5, 6, 8);
+//        List<Apple> bimap = bimap(integers1, integers1, Apple::new);
+//        for (Apple apple : bimap) {
+//            System.out.println(apple);
+//        }
 //
 //        appleList.sort(Comparator.comparing(apple -> apple.getColor()));
 //        //将苹果的集合转换成颜色的集合
@@ -84,6 +106,8 @@ public class Map {
 
         public boolean isRed() {
             return "red".equals(color);
+        }public boolean isBlue() {
+            return "blue".equals(color);
         }
 
         public Apple(Integer id, Integer weight, String color) {
