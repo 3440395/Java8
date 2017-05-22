@@ -2,7 +2,6 @@ package com.xk.java8.chapter1;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Created by xuekai on 2017/5/17.
@@ -13,110 +12,37 @@ public class AppleFilter {
 
     public static void main(String[] args) {
         List<Apple> appleList = new ArrayList<>();
+        appleList.add(new Apple(3, 4, "green"));
+        appleList.add(new Apple(6, 1, "red"));
+        appleList.add(new Apple(1, 6, "red"));
         appleList.add(new Apple(1, 6, "red"));
         appleList.add(new Apple(2, 5, "blue"));
-        appleList.add(new Apple(3, 4, "green"));
         appleList.add(new Apple(4, 3, "red"));
         appleList.add(new Apple(5, 2, "blue"));
         appleList.add(new Apple(6, 1, "red"));
         appleList.add(new Apple(6, 1, "red"));
         appleList.add(new Apple(6, 1, "red"));
         appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-        appleList.add(new Apple(6, 1, "red"));
-
 
         long start = System.currentTimeMillis();
-        List<Apple> collect = appleList.stream()
-                .filter(a -> a.getColor().equals("red"))
-                .collect(Collectors.toList());
-        System.out.println(System.currentTimeMillis() - start);
+        appleList.stream()
+                .skip(1)
+                .filter(a -> {
+                    System.out.println("filter" + a.getId());
+                    return a.getColor().equals("red");
+                })
+                .map((apple) -> {
+                    System.out.println("map" + apple.getId());
+                    return apple.getId();
+                })
+                .sorted()
+                .distinct()
+                .limit(3)
+                .forEach(System.out::println);
+//        for (Integer s : collect) {
+//            System.out.println("chuliwanle ---" + s);
+//        }
+//        System.out.println(System.currentTimeMillis() - start);
 //        for (Apple so : collect) {
 //            System.out.println(so);
 //        }
