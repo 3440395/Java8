@@ -1,6 +1,7 @@
 package com.xk.java8.chapter5;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -8,11 +9,11 @@ import java.util.List;
  */
 
 public class Shijian5_5 {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Trader raoul = new Trader("Raoul", "Cambridge");
-        Trader mario = new Trader("Mario","Milan");
-        Trader alan = new Trader("Alan","Cambridge");
-        Trader brian = new Trader("Brian","Cambridge");
+        Trader mario = new Trader("Mario", "Milan");
+        Trader alan = new Trader("Alan", "Cambridge");
+        Trader brian = new Trader("Brian", "Cambridge");
 
         List<Transaction> transactions = Arrays.asList(
                 new Transaction(brian, 2011, 300),
@@ -23,8 +24,55 @@ public class Shijian5_5 {
                 new Transaction(alan, 2012, 950)
         );
 
+
+//        transactions.stream()
+//                .filter(transaction -> transaction.getYear()==2011)
+//                .sorted(Comparator.comparing(Transaction::getValue))
+//                .forEach(transaction -> System.out.println(transaction));
+
+
+//        transactions.stream()
+//                .map(transaction -> transaction.getTrader().getCity())
+//                .distinct()
+//                .forEach(System.out::println);
+
+
+//        transactions.stream()
+//                .map(transaction -> transaction.getTrader())
+//                .distinct()
+//                .filter(trader -> trader.getCity().equals("Cambridge"))
+//                .sorted(Comparator.comparing(Trader::getName))
+//                .forEach(transaction -> System.out.println(transaction));
+
+//        transactions.stream()
+//                .map(transaction -> transaction.getTrader().getName())
+//                .distinct()
+//                .sorted()
+//                .reduce((s1,s2)->s1+s2)//这样拼接字符串不高效，因为会一直创建新的String，可以用join替代，内部用的Stringbuilder
+//                .ifPresent(System.out::println);
+////                .collect(joining());System.out.println(collect);
+
+//        boolean milan = transactions.stream()
+//                .map(transaction -> transaction.getTrader())
+//                .distinct()
+//                .anyMatch(trader -> trader.getCity().equals("Milan"));
+//        System.out.println(milan);
+
+
+//         transactions.stream()
+//                 .filter(transaction -> transaction.getTrader().getCity().equals("Cambridge"))
+//                 .map(transaction -> transaction.getValue())
+//                 .forEach(System.out::println);
+
+
+//        transactions.stream()
+//                .map(transaction -> transaction.getValue())
+//                .reduce(Integer::max)
+//                .ifPresent(System.out::println);
+
         transactions.stream()
-                .forEach(Transaction::toString);
+                .min(Comparator.comparing(Transaction::getValue))
+                .ifPresent(System.out::println);
 
     }
 }
