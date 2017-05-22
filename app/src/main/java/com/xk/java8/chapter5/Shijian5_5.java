@@ -1,7 +1,6 @@
 package com.xk.java8.chapter5;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -70,9 +69,33 @@ public class Shijian5_5 {
 //                .reduce(Integer::max)
 //                .ifPresent(System.out::println);
 
-        transactions.stream()
-                .min(Comparator.comparing(Transaction::getValue))
-                .ifPresent(System.out::println);
+//        transactions.stream()
+//                .min(Comparator.comparing(Transaction::getValue))
+//                .ifPresent(System.out::println);
 
+
+
+
+//        //数值流,通过mapToxxx将流特化成int、float等流
+//        transactions.stream()
+//                .mapToInt(transaction -> transaction.getValue())
+//                .average()
+//                .ifPresent(System.out::print);
+
+
+        /**
+         * 特化流转换成普通流
+         */
+//        transactions.stream()
+//                .mapToInt(transaction -> transaction.getValue())
+//                .boxed()
+//                .forEach(System.out::println);
+//
+//
+//        int i = transactions.stream()
+//                .mapToInt(transaction -> transaction.getValue())
+//                .max()
+//                .orElse(1);
+//        System.out.println(i);
     }
 }
