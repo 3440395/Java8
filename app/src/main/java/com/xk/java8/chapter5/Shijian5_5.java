@@ -86,16 +86,16 @@ public class Shijian5_5 {
         /**
          * 特化流转换成普通流
          */
-//        transactions.stream()
-//                .mapToInt(transaction -> transaction.getValue())
-//                .boxed()
-//                .forEach(System.out::println);
-//
-//
-//        int i = transactions.stream()
-//                .mapToInt(transaction -> transaction.getValue())
-//                .max()
-//                .orElse(1);
-//        System.out.println(i);
+        //        transactions.stream()
+        //                .mapToInt(transaction -> transaction.getValue())
+        //                .boxed()
+        //                .forEach(System.out::println);
+        //
+        //
+        //        int i = transactions.stream()
+        //                .mapToInt(transaction -> transaction.getValue())
+        //                .max()
+        //                .orElse(1);
+        //        System.out.println(i);
     }
 }
